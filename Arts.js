@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import './Box.css';
+import ScrollToTop from 'react-scroll-to-top';
 
 const Arts = () => {
     const cardInfo = [
@@ -24,7 +25,7 @@ const Arts = () => {
                     <Card.Text>
                         {card.text}
                     </Card.Text>
-                    <Button variant="primary" href={card.link}>Visit</Button>
+                    <Button variant="primary" href={card.link} target='_blank'>Visit</Button>
                 </Card.Body>
             </Card>
         )
@@ -32,13 +33,19 @@ const Arts = () => {
 
     return (
         <>
-        <div className='attraction-header' id='title-padding'>
-            <h1>Arts and Music</h1>
+        <div>
+            <ScrollToTop smooth />
+        </div>
+        <div className='attraction-header' id='arts-header'>
+            <h1>Arts & Music</h1>
         </div>
         <div className="box">
             <div className='grid'>{cardInfo.map(renderCard)}</div>  
         </div>
           
+        <div className='center'>
+            <button className='btn'><a href="/attractions">Go Back to Attractions</a></button>
+        </div>
         </>
         
     )
